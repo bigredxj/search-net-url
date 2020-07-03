@@ -1,6 +1,7 @@
 package jingjing.com;
 
 import jingjing.com.http.HttpClientService;
+import jingjing.com.utils.IOUtil;
 import jingjing.com.utils.SearchUtil;
 
 import java.util.ArrayList;
@@ -22,8 +23,10 @@ public class App
 
         String key ="西洋";
         List<String> list = new ArrayList<String>();
+        List<String> result = new ArrayList<String>();
 
-        for(int i=100;i<=200;i++){
+
+        for(int i=50;i<=70;i++){
             System.out.print(i+",");
             url = originUrl.replace("replace_page",i+"");
             httpClientService.setUrl(url);
@@ -32,7 +35,10 @@ public class App
             for(String s:list){
                 System.out.println(s);
             }
+
+            result.addAll(list);
         }
+        IOUtil.write("result.txt",result);
         httpClientService.close();
 
     }
