@@ -12,10 +12,12 @@ public class SearchUtil {
         if(str == null || key == null){
         }else {
             String[] ss = str.split("\n");
-
+            String[] keys = key.split(",");
             for(int i=0;i<ss.length;i++){
-                if(ss[i].contains(key)){
-                    result.add(ss[i]);
+                for(String k:keys) {
+                    if (ss[i].contains(k)) {
+                        result.add(ss[i]);
+                    }
                 }
             }
         }
