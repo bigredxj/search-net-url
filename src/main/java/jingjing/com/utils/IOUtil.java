@@ -7,7 +7,8 @@ import java.util.List;
 public class IOUtil {
     public static void write(String file, List<String> list) {
         try{
-            PrintWriter pw = new PrintWriter(file);
+            String userDir = System.getProperty("user.dir");
+            PrintWriter pw = new PrintWriter(userDir+"/"+file);
             for(String s:list){
                 pw.println(s);
             }
